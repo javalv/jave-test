@@ -5,35 +5,38 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Created by lin on 16/11/13.
+ * 1.jvm会为每个线程提供一个栈内存,同时为成员变量复制一个副本
+ * 2.volatile保证:当子线程在使用变量时,一定能拿到最新当值(主线程修改后)
+ * 3.但是当其它子线程也在并发当情况下修改了这个值,如thread1执行了i++,同时thread2执行了i++,则不能保证i=i+2;
+ * 4.如果想保证以上这点,需要使用原子操作
  */
 public class VolatileTest extends  Thread{
 
-    private boolean isRunning = true;
+//    private boolean isRunning = true;
 
 //    private AtomicBoolean atomicRunning = new AtomicBoolean(true);
 
-    private  int i = 0;
+    private volatile int i = 0;
 
     public VolatileTest(){
     }
 
     public void setRunning(){
-        this.isRunning = false;
+//        this.isRunning = false;
 //        atomicRunning.set(false);
         this.i = 1;
     }
 
     public void run(){
 
-        while (isRunning){
+        while (i == 0){
 //            i++;
 //            try {
 //                Thread.sleep(500);
 //            } catch (InterruptedException e) {
 //                e.printStackTrace();
 //            }
-            System.out.println(i);
+//            System.out.println(i);
         }
 //        while(atomicRunning.get()){
 //
