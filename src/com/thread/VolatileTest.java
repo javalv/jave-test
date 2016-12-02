@@ -1,8 +1,4 @@
-package com.thread.volatiles;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
+package com.thread;
 
 /**
  * 1.jvm会为每个线程提供一个栈内存,同时为成员变量复制一个副本
