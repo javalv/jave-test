@@ -16,10 +16,14 @@ public class IntegerTest {
         System.out.println(a==b);
         System.out.println(a.equals(b));
 
+        System.out.println(" ========== "  );
+
         a = 1;
         b = 1;
         System.out.println(a==b);
         System.out.println(a.equals(b));
+
+        System.out.println(" ========== "  );
 
         // IntegerCache -128~127 同样缓存的还有 Long\Short\Character , Byte和Boolean全缓存
         a = 128;
