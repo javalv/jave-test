@@ -24,10 +24,8 @@ public class InsertSort {
             int position = i;
             int temp = a[position];
             int j=position-1;
-            for(;j>=0;j--){
-                if(temp < a[j] ){
-                    a[j+1] = a[j];
-                }
+            for(;j>=0 && temp < a[j];j--){
+                a[j+1] = a[j];
             }
             a[j+1] = temp;
 
