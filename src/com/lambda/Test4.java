@@ -51,7 +51,7 @@ public class Test4 {
         };
 
 
-        javaProgrammers.stream().filter()
+//        javaProgrammers.stream().filter();
     }
 
     static class Person{
