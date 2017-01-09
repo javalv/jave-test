@@ -23,7 +23,7 @@ public class SimpleSort {
         for(int i = 0; i<= a.length-1; i++){
             int min = a[i];
             int index = i;
-            //在剩下的集合中找到最少的
+            //在剩下的集合中找到最小的
             for(int j=i ; j < a.length -1 ;j++){
                 if(min > a[j+1]){
                     min = a[j+1];

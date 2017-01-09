@@ -32,11 +32,5 @@ public class BubberSort {
 
     }
 
-    public static void selectSort(int[] a){
-        for(int i=a.length-1;i>0;i--){
-            for(int j=0;j<i;j++){
 
-            }
-        }
-    }
 }

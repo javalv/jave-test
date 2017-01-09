@@ -20,9 +20,11 @@ public class InsertSort {
         sort(a);
     }
     private static void sort(int a[]){
+        //从第二个元素开始
         for(int i = 1 ; i < a.length; i++){
             int position = i;
             int temp = a[position];
+            //比指定元素的值大,在指定元素位置之前的元素往后整体移动一位
             int j=position-1;
             for(;j>=0 && temp < a[j];j--){
                 a[j+1] = a[j];
