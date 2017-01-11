@@ -22,6 +22,8 @@ public class BinaryTree {
         Node node = tree.createTree(a);
 
         tree.traverse(node);
+
+        System.out.println(tree.find(0,node));
     }
 
     //遍历二叉树
@@ -37,6 +39,21 @@ public class BinaryTree {
             print(node.right);
         }
     }
+
+    //查找节点
+    private boolean find(int value,Node node){
+        if(node.getValue() == value){
+            return true;
+        }
+        if(value < node.getValue() && node.left != null){
+            return find(value,node.left);
+        }else if(value > node.getValue() && node.right != null) {
+            return find(value,node.right);
+        }
+
+        return false;
+    }
+
 
     //生产一颗二叉树
     Node createTree(int[] a){
@@ -69,7 +86,6 @@ public class BinaryTree {
 
     class Node{
         int value;
-        Node parent;
         Node left;
         Node right;
 
@@ -79,10 +95,6 @@ public class BinaryTree {
 
         public int getValue() {
             return value;
-        }
-
-        public Node getParent() {
-            return parent;
         }
 
         public Node getLeft() {
