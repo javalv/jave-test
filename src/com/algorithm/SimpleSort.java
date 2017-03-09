@@ -8,7 +8,7 @@ package com.algorithm;
 
 /**
  * ClassName:com.algorithm.SimpleSort 
- * 描述: TODO  
+ * 描述: TODO  简单排序/选择排序
  * 日期:     2017/1/9 
  * @author lvfang
  * @version 1.0.0
