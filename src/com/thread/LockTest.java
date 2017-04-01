@@ -150,10 +150,31 @@ public class LockTest {
         thread.start();
     }
 
+
+    private void ReentrantTest(){
+        lock.lock();
+        try{
+
+            lock.lock();
+            try{
+                System.out.println("");
+            }finally {
+                lock.unlock();
+                System.out.println("unlock 1 ...");
+            }
+
+        }finally {
+            lock.unlock();
+            System.out.println("unlock 2 ...");
+        }
+    }
+
     public static void main(String[] args) {
 
         LockTest lockTest = new LockTest();
-        lockTest.test();
+//        lockTest.test();
+
+        lockTest.ReentrantTest();
 
     }
 }
