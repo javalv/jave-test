@@ -18,7 +18,7 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
-        int[] a = { 3, 9,17, 6, 5,19, 2, 1, 7,8,10,23,16 };
+        int[] a = { 3, 9,17, 6, 5,19, 10,2, 1, 7,8,10,23,16 };
         Node node = tree.createTree(a);
 
         tree.traverse(node);
