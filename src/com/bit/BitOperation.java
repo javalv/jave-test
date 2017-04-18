@@ -68,7 +68,6 @@ public class BitOperation {
 
     }
 
-
     //01110001,01010011,00010001
 }
 
