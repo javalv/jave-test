@@ -5,8 +5,9 @@ package com.algorithm;
  */
 public class BubberSort {
     public static void main(String[] args) {
-        int[] a = { 3, 9, 6, 5, 2, 1, 7 };
-        sort(a);
+        int[] a = { 3, 5, 9, 6, 5, 2, 1, 7 };
+//        sort(a);
+        sort1(a);
     }
 
 
@@ -33,4 +34,25 @@ public class BubberSort {
     }
 
 
+    public static void sort1(int[] a){
+        //定位位置
+        for (int i = 0; i<a.length;i++) {
+            //从未排序的里面找到最大的放到指定位置
+            for (int j = i; j < a.length; j++) {
+                if (a[i] < a[j]) {
+                    // 借助第三者达到位置的变化
+                    int temp;
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+            //打印排序后的数组
+            for (int n = 0; n < a.length; n++) {
+                System.out.print(a[n]+",");
+            }
+            System.out.println();
+        }
+
+    }
 }
