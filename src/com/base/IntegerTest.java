@@ -31,6 +31,7 @@ public class IntegerTest {
         System.out.println(a==b);//false
         System.out.println(a.equals(b));//true
 
+
         System.out.println(" ========== "  );
 
         String aa = new String("hello");
@@ -43,6 +44,8 @@ public class IntegerTest {
         //string中也有缓存,string pool,当执行 aa="hello"的时候创建,Integer是加载时创建
         bb = "hello";
         System.out.println(aa == bb);//true
+
+        Integer.valueOf("-10");
 
     }
 }

@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * ClassName:com.java8async.Test1 
+ * ClassName:com.java8async.Test
  * 描述: TODO  
  * 日期:     2017/3/14 
  * @author lvfang
