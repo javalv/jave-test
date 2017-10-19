@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 public class Test1 {
 
     public static void main(String[] args) throws IOException {
-        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
             System.out.println("A start ..." + Thread.currentThread().getName() + " " + new Timestamp(System.currentTimeMillis()));
             try {
                 Thread.sleep(2000);
@@ -29,8 +29,9 @@ public class Test1 {
                 e.printStackTrace();
             }
             System.out.println("A end ..." + new Timestamp(System.currentTimeMillis()));
+            return 1;
         });
-        CompletableFuture<Void> f2 = future.thenApplyAsync((a)->{
+        CompletableFuture<Long> f2 = future.thenApplyAsync((a)->{
             System.out.println("a:" + " " + Thread.currentThread().getName() + new Timestamp(System.currentTimeMillis()));
             try {
                 Thread.sleep(2000);

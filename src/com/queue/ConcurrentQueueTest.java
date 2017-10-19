@@ -11,9 +11,10 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * ClassName:com.queue.ConcurrentQueueTest 
- * 描述: TODO  
- * 日期:     2017/5/25 
+ * ClassName:com.queue.ConcurrentQueueTest
+ * 描述: TODO
+ * 日期:     2017/5/25
+ *
  * @author lvfang
  * @version 1.0.0
  * @since 1.0
@@ -22,10 +23,10 @@ public class ConcurrentQueueTest {
 
     public static void main(String[] args) throws InterruptedException {
         ConcurrentQueueTest test = new ConcurrentQueueTest();
-        for (int i=0;i<1000 ;i++){
-            new Thread(()->{
+        for (int i = 0; i < 1000; i++) {
+            new Thread(() -> {
                 long time = System.currentTimeMillis();
-                for (int j=0; j<100000; j++){
+                for (int j = 0; j < 100000; j++) {
                     test.offer(System.currentTimeMillis());
                 }
                 System.out.println(Thread.currentThread() + ": " + (System.currentTimeMillis() - time));
@@ -33,14 +34,14 @@ public class ConcurrentQueueTest {
         }
         Thread.sleep(1000);
         long last = 0;
-        while (true){
+        while (true) {
 
             Long n = test.take();
-            if(n == null){
+            if (n == null) {
 //                System.out.println("take is null");
                 continue;
             }
-            if(n < last){
+            if (n < last) {
 //                System.out.println(n);
             }
 
@@ -52,11 +53,11 @@ public class ConcurrentQueueTest {
 //    ConcurrentLinkedQueue<Long> queue = new ConcurrentLinkedQueue<>();
     LinkedBlockingQueue<Long> queue = new LinkedBlockingQueue<>();
 
-    private Long take(){
+    private Long take() {
         return queue.poll();
     }
 
-    private void offer(long n){
+    private void offer(long n) {
         queue.offer(n);
     }
 }
