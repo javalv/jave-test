@@ -11,9 +11,10 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ClassName:com.queue.SynchronousQueueTest 
- * 描述: TODO  
- * 日期:     2017/5/8 
+ * ClassName:com.queue.SynchronousQueueTest
+ * 描述: TODO
+ * 日期:     2017/5/8
+ *
  * @author lvfang
  * @version 1.0.0
  * @since 1.0
@@ -24,38 +25,50 @@ public class SynchronousQueueTest {
         new Customer(queue).start();
         new Product(queue).start();
     }
-    static class Product extends Thread{
+
+    static class Product extends Thread {
         SynchronousQueue<Integer> queue;
-        public Product(SynchronousQueue<Integer> queue){
+
+        public Product(SynchronousQueue<Integer> queue) {
             this.queue = queue;
         }
+
         @Override
-        public void run(){
-            while(true){
+        public void run() {
+            while (true) {
                 int rand = new Random().nextInt(1000);
-                System.out.println("生产了一个产品："+rand);
-                System.out.println("等待一秒后运送出去...");
+                System.out.println("生产了一个产品：" + rand);
                 try {
-                    TimeUnit.SECONDS.sleep(1);
+                    queue.put(rand);
+//                   queue.offer(rand);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                queue.offer(rand);
+//                System.out.println("等待一秒后运送出去...");
+                try {
+                    TimeUnit.SECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
     }
-    static class Customer extends Thread{
+
+    static class Customer extends Thread {
         SynchronousQueue<Integer> queue;
-        public Customer(SynchronousQueue<Integer> queue){
+
+        public Customer(SynchronousQueue<Integer> queue) {
             this.queue = queue;
         }
+
         @Override
-        public void run(){
-            while(true){
+        public void run() {
+            while (true) {
                 try {
-                    System.out.println("消费了一个产品:"+queue.take());
+                    System.out.println("消费了一个产品:" + queue.take());
                     try {
-                        TimeUnit.SECONDS.sleep(3);
+                        TimeUnit.SECONDS.sleep(30);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
